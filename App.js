@@ -14,13 +14,27 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName='Home'>
+        initialRouteName='Home'
+        screenOptions={
+          {
+            headerTintColor: 'white',
+            headerStyle: { backgroundColor: 'orange' }
+          }
+        }>
         <Stack.Screen
           name='Home'
-          component={HomeScreen} />
+          component={HomeScreen}
+          options={{
+            title: 'Movie Time',
+            headerStyle: { backgroundColor: 'blue' }
+          }} />
         <Stack.Screen
           name='Details'
           component={DetailsScreen} />
+        <Stack.Screen
+          name='Details_to_Details'
+          component={DetailsScreen}
+          options={({ route }) => ({ title: route.params.screenNumber })} />
         <Stack.Screen
           name='BigImageView'
           component={ImageScreen} />
